@@ -9,7 +9,11 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{ sayStuff() }}</h1>
+        <h1 v-once >{{ title }} </h1>
+        <p>{{ sayStuff() }}</p>
+        <a v-bind:href="link">App1</a>
+        <hr>
+        <p v-html="finishedLink" ></p>
     </div>
     <script src="./script.js"></script>
 </body>
