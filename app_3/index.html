@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    
+    <div id="app">
+        <div class="container grid">
+            <div class="action-cont">
+                <button v-on:click="increase(2, $event)" id="action-btn" >Count {{ element }}</button>
+                <p>{{counter }}</p>    
+            </div>
+    
+            <div class="action-cont">
+                <button v-on:mousemove="coordinates" id="area"> Coordinates - {{ x }} / {{ y }} - 
+                <span v-on:mousemove.stop="">dead spot</span> 
+                </button>
+            </div>
+            <div class="action-cont">
+                <input v-model="name"  type="text">
+                <p>{{ name }}</p>
+            </div>
+            <div class="action-cont">
+                <div class="btn-cont">
+                    <button v-on:click="counter++">increase</button>
+                    <button v-on:click="counter--">decrease</button>
+                    <button v-on:click="value++">increase value</button>
+                </div>
+                <p>{{counter }} | {{ value }}</p>    
+                <p>{{ result() }} | {{ output }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
