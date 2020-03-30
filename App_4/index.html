@@ -12,7 +12,7 @@
         <div class="boxes-cont">
             <div class="box" @click="attachRed = !attachRed" :class="divClasses"></div>
             <div class="box" @click="attachRed = !attachRed" :class="{blue : attachRed}"></div>
-            <div class="box" @click="attachRed = !attachRed" :class="color"></div>
+            <div class="box" @click="attachRed = !attachRed" :class="[color, {red: attachRed}]"></div>
         </div>
 
         <hr>
