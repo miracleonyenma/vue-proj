@@ -12,9 +12,19 @@
         <div class="boxes-cont">
             <div class="box" @click="attachRed = !attachRed" :class="divClasses"></div>
             <div class="box" @click="attachRed = !attachRed" :class="{blue : attachRed}"></div>
-            <div class="box" @click="attachRed = !attachRed" :class="{green : attachRed}"></div>
+            <div class="box" @click="attachRed = !attachRed" :class="color"></div>
         </div>
 
+        <hr>
+
+        <input type="text" name="color" id="color" v-model="color">
+        
+        <label for="green">green</label>
+        <input type="radio" name="green" v-model="color" value="green">
+        <label for="red">red</label>
+        <input type="radio" name="red" v-model="color" value="red">
+        <label for="blue">blue</label>
+        <input type="radio" name="blue" v-model="color" value="blue">
     </div>
     
     <script src="../node_modules/vue/dist/vue.min.js"></script>
