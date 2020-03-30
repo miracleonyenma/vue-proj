@@ -15,16 +15,26 @@
             <div class="box" @click="attachRed = !attachRed" :class="[color, {red: attachRed}]"></div>
         </div>
 
-        <hr>
+        <input type="text" v-model="color">
+        <div class="group-cont">
+            <label for="green">green</label>
+            <input type="radio" name="green" v-model="color" value="green">
+            <label for="red">red</label>
+            <input type="radio" name="red" v-model="color" value="red">
+            <label for="blue">blue</label>
+            <input type="radio" name="blue" v-model="color" value="blue">
+        </div>
 
-        <input type="text" name="color" id="color" v-model="color">
-        
-        <label for="green">green</label>
-        <input type="radio" name="green" v-model="color" value="green">
-        <label for="red">red</label>
-        <input type="radio" name="red" v-model="color" value="red">
-        <label for="blue">blue</label>
-        <input type="radio" name="blue" v-model="color" value="blue">
+        <div class="boxes-cont">
+            <div class="box" :style="{backgroundColor: newcolor}"></div>
+            <div class="box" :style="[setWidth, {backgroundColor: newcolor}]">
+                <span>{{width}}</span>
+            </div>
+            <div class="box" :style="{backgroundColor: newcolor}"></div>
+        </div>
+
+        <input type="range" name="width" v-model="width" max="1000" >
+        <input type="color" name="color" v-model="newcolor">
     </div>
     
     <script src="../node_modules/vue/dist/vue.min.js"></script>

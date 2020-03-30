@@ -28,14 +28,20 @@ body{
     background: var(--bg);
 }
 
+.boxes-cont{
+    display: flex;
+}
+
 .box{
     width: 180px;
     height: 180px;
     background-color: var(--bg);
-    display: inline-block;
+    display: inline-flex;
     margin: 18px;
     box-shadow: var(--box-shadow-soft-dark);
     border-radius: 1em;
+    justify-content: center;
+    align-items: center;
 }
 
 .red{
