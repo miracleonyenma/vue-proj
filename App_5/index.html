@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App_4</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
-        <p>See Me!</p>
-        <p>Nah, You only get to see Me!</p>
+        <div v-if="show" class="section">
+            <p>See Me!</p>
+        </div>
+        <div v-else class="section">
+            <p>Nah, You only get to see Me!</p>
+        </div>
+        <div class="section">
+            <p>Nah, You'll always get to see Me!</p>
+        </div>
+
+        <template v-if="!show">
+            <h1>Sup template!</h1>
+            <div class="section">
+                <p>Also inside a template</p>
+            </div>
+        </template>
+
+        <button @click="show = !show">Switch</button>
     </div>
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
