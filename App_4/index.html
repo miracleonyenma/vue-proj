@@ -12,17 +12,27 @@
         <div class="boxes-cont">
             <div class="box" @click="attachRed = !attachRed" :class="divClasses"></div>
             <div class="box" @click="attachRed = !attachRed" :class="{blue : attachRed}"></div>
-            <div class="box" @click="attachRed = !attachRed" :class="[color, {red: attachRed}]"></div>
+            <div class="box" :class="[color, {red: attachRed}]"></div>
         </div>
 
         <input type="text" v-model="color">
         <div class="group-cont">
-            <label for="green">green</label>
-            <input type="radio" name="green" v-model="color" value="green">
-            <label for="red">red</label>
-            <input type="radio" name="red" v-model="color" value="red">
-            <label for="blue">blue</label>
-            <input type="radio" name="blue" v-model="color" value="blue">
+
+            <div class="radio-input-cont">
+                <input id="green" type="radio" name="green" v-model="color" value="green">
+                <label for="green">green</label>
+            </div>
+
+            <div class="radio-input-cont">
+                <input id="blue" type="radio" name="blue" v-model="color" value="blue">                
+                <label for="blue">blue</label>
+            </div>
+
+            <div class="radio-input-cont">
+                <input id="red" type="radio" name="red" v-model="color" value="red">
+                <label for="red">red</label>
+            </div>
+
         </div>
 
         <div class="boxes-cont">
@@ -33,7 +43,7 @@
             <div class="box" :style="{backgroundColor: newcolor}"></div>
         </div>
 
-        <input type="range" name="width" v-model="width" max="1000" >
+        <input type="range" name="width" v-model="width" max="700" >
         <input type="color" name="color" v-model="newcolor">
     </div>
     
