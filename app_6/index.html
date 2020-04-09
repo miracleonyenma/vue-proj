@@ -9,8 +9,12 @@
 <body>
     <div id="app">
         <ul class="list">
-            <li v-for="(i, count) in ingredients">{{i}} - {{count}}</li>
+            <li v-for="(i, index) in ingredients">{{i}} - {{index}}</li>
         </ul>
+        <template v-for="(i, index) in ingredients">
+            <h1>{{i}}</h1>
+            <p>{{index}}</p>
+        </template>
     </div>
     
     <script src="../node_modules/vue/dist/vue.min.js"></script>
