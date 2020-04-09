@@ -8,16 +8,20 @@
 </head>
 <body>
     <div id="app">
-        <div v-if="show" class="section">
-            <p>See Me!</p>
-        </div>
-        <div v-else class="section">
-            <p>Nah, You only get to see Me!</p>
-        </div>
-        <div class="section">
-            <p>Nah, You'll always get to see Me!</p>
-        </div>
-
+        <section class="grid">
+            <div v-if="show" class="section">
+                <p>See Me!</p>
+            </div>
+            <div v-else class="section">
+                <p>Nah, You only get to see Me!</p>
+            </div>
+            <div class="section">
+                <p>Nah, You'll always get to see Me!</p>
+            </div>
+            <div v-show="show" class="section">
+                <p>I'm never really gone</p>
+            </div>
+        </section>
         <template v-if="!show">
             <h1>Sup template!</h1>
             <div class="section">
