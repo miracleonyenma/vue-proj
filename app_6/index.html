@@ -11,6 +11,15 @@
         <ul class="list">
             <li v-for="(i, index) in ingredients">{{i}} - {{index}}</li>
         </ul>
+        <hr>
+        <ul class="list">
+            <li v-for="person in persons">
+                <ul>
+                    <li v-for="(value, key, count) in person">{{key}} : {{value}} - {{count}}</li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
         <template v-for="(i, index) in ingredients">
             <h1>{{i}}</h1>
             <p>{{index}}</p>
