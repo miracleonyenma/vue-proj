@@ -9,21 +9,57 @@ hr{
     margin: 12px 0;
 }
 
+button{
+    padding: 8px 12px;
+    background: hsl(229, 100%, 55%);
+    color: #fff;
+    border: 2px solid #fff;
+    border: none;
+}
+
 #app{
     padding: 12px;
 }
 
+section{
+    margin: 12px;
+}
+
+section ul.list{
+    margin: 12px 0;
+    width: fit-content;
+    color: hsl(229, 20%, 25%);
+}
 
 ul.list li{
     list-style-type: none;
-    border: 2px solid rgba(51, 51, 51, 0.452);
-    border-bottom: none;
     padding: 8px;
+    border: 2px solid hsl(229, 100%, 55%);
+    border-bottom: none;
+
 }
 ul.list li:nth-of-type(1){
     border-radius: 8px 8px 0 0;
 }
 ul.list li:nth-last-of-type(1){
-    border-bottom: 2px solid rgba(51, 51, 51, 0.452);
+    border-bottom: 2px solid hsl(229, 100%, 55%);
     border-radius: 0 0 8px 8px;
+}
+
+.container{
+    position: relative;
+    padding: 8px;
+    border: 2px solid hsl(229, 100%, 55%);
+    margin: 12px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+}
+
+.container > div{
+    background: hsla(229, 100%, 55%, 0.09);
+    margin: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    color: hsl(229, 20%, 25%);
 }

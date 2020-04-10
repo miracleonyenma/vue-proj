@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App_</title>
+    <title>App_6</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="app">
-        <ul class="list">
-            <li v-for="(i, index) in ingredients">{{i}} - {{index}}</li>
-        </ul>
-        <hr>
-        <ul class="list">
-            <li v-for="person in persons">
-                <ul>
-                    <li v-for="(value, key, count) in person">{{key}} : {{value}} - {{count}}</li>
-                </ul>
-            </li>
-        </ul>
-        <hr>
-        <span v-for="i in 10">{{i}}</span>
-        <template v-for="(i, index) in ingredients">
-            <h1>{{i}}</h1>
-            <p>{{index}}</p>
-        </template>
+        <section>
+            <ul class="list">
+                <li v-for="(i, index) in ingredients" :key="i">{{i}} - {{index}}</li>
+            </ul>
+
+            <button @click="ingredients.push('spices')">Add to list</button>
+
+            <ul class="list">
+                <li v-for="person in persons">
+                    <ul>
+                        <li v-for="(value, key, count) in person">{{key}} : {{value}} - {{count}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <span v-for="i in 10">{{i}}</span>            
+        </section>
+        <section>
+            <template v-for="(i, index) in ingredients">
+                <h1>{{i}}</h1>
+                <p>{{index}}</p>
+            </template>
+        </section>
+        <!-- <template v-for="(i, index) in persons">
+            <div v-for="(person, index) in i">
+                <h1>{{person}}</h1>
+                <p>{{index}}</p>
+            </div>
+        </template> -->
+        <section>
+            <div class="container" v-for="(i, index) in persons">
+                <div v-for="(person, index) in i">
+                    <h1>{{person}}</h1>
+                    <p>{{index}}</p>
+                </div>
+            </div>
+        </section>
     </div>
     
     <script src="../node_modules/vue/dist/vue.min.js"></script>
