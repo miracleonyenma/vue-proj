@@ -11,27 +11,27 @@
     <section class="row">
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
-            <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+            <div class="healthbar-cont">
+                <div :style="{width : player.health + '%', backgroundColor : 'hsl('+player.health + ', 65%, 50%)'}" class="healthbar text-center">
+                    <span>{{player.health}}</span>
                 </div>
             </div>
         </div>
         <div class="small-6 columns">
             <h1 class="text-center">MONSTER</h1>
-            <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+            <div class="healthbar-cont">
+                <div class="healthbar text-center" :style="{width : monster.health + '%', backgroundColor : 'hsl('+monster.health + ', 65%, 50%)'}">
+                    <span>{{monster.health}}</span>
                 </div>
             </div>
         </div>
     </section>
     <section class="row controls">
         <div class="small-12 columns">
-            <button @click="show = true" id="start-game">START NEW GAME</button>
+            <button @click="started = true" id="start-game">START NEW GAME</button>
         </div>
     </section>
-    <section v-show="show" class="row controls">
+    <section v-show="started" class="row controls">
         <div class="small-12 columns">
             <button id="attack">ATTACK</button>
             <button id="special-attack">SPECIAL ATTACK</button>
@@ -39,7 +39,7 @@
             <button id="give-up">GIVE UP</button>
         </div>
     </section>
-    <section v-show="show" class="row log">
+    <section v-show="started" class="row log">
         <div class="small-12 columns">
             <ul>
                 <li>

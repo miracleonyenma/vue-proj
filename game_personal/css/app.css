@@ -2,12 +2,30 @@
     text-align: center;
 }
 
-.healthbar {
+.healthbar-cont, .healthbar {
     width: 80%;
     height: 40px;
     background-color: #eee;
     margin: auto;
     transition: width 500ms;
+    border-radius: 12px;
+}
+
+.healthbar{
+    transition: width 0.12s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    width: 100%;
+    background: hsl(110, 65%, 50%);
+    margin: 0;
+    color: #fff;
+    position: relative;
+}
+
+.healthbar span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 1.5em;
+    transform: translate(-50%, -50%);
 }
 
 .controls, .log {
