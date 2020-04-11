@@ -13,28 +13,28 @@
             <h1 class="text-center">YOU</h1>
             <div class="healthbar-cont">
                 <div :style="{width : player.health + '%', backgroundColor : 'hsl('+player.health + ', 65%, 50%)'}" class="healthbar text-center">
-                    <span>{{player.health}}</span>
                 </div>
+                <span>{{player.health}}</span>
             </div>
         </div>
         <div class="small-6 columns">
             <h1 class="text-center">MONSTER</h1>
             <div class="healthbar-cont">
                 <div class="healthbar text-center" :style="{width : monster.health + '%', backgroundColor : 'hsl('+monster.health + ', 65%, 50%)'}">
-                    <span>{{monster.health}}</span>
                 </div>
+                <span>{{monster.health}}</span>
             </div>
         </div>
     </section>
     <section class="row controls">
         <div class="small-12 columns">
-            <button @click="started = true" id="start-game">START NEW GAME</button>
+            <button @click="resetAll" id="start-game">START NEW GAME</button>
         </div>
     </section>
     <section v-show="started" class="row controls">
         <div class="small-12 columns">
-            <button id="attack">ATTACK</button>
-            <button id="special-attack">SPECIAL ATTACK</button>
+            <button @click="Attack('attack', player, monster)" id="attack">ATTACK</button>
+            <button @click="Attack('special', player, monster)" id="special-attack">SPECIAL ATTACK</button>
             <button id="heal">HEAL</button>
             <button id="give-up">GIVE UP</button>
         </div>
