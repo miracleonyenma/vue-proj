@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Monster Slayer</title>
-    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -28,10 +28,10 @@
     </section>
     <section class="row controls">
         <div class="small-12 columns">
-            <button id="start-game">START NEW GAME</button>
+            <button @click="show = true" id="start-game">START NEW GAME</button>
         </div>
     </section>
-    <section class="row controls">
+    <section v-show="show" class="row controls">
         <div class="small-12 columns">
             <button id="attack">ATTACK</button>
             <button id="special-attack">SPECIAL ATTACK</button>
@@ -39,7 +39,7 @@
             <button id="give-up">GIVE UP</button>
         </div>
     </section>
-    <section class="row log">
+    <section v-show="show" class="row log">
         <div class="small-12 columns">
             <ul>
                 <li>
@@ -49,5 +49,7 @@
         </div>
     </section>
 </div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>
