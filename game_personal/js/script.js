@@ -20,14 +20,14 @@ new Vue({
         Attack : function(mode, attacker, enemy){
             console.log(enemy[mode]);
             
-            if(enemy.health > 0 && attacker.health > 0){
+            if(attacker.health > 0){
                 enemy.health = enemy.health - attacker[mode];
+                if(enemy.health <= 0){
+                    enemy.health = 0;
+                }
                 if(attacker == this.player){
                     this.Attack("attack", enemy, attacker);
                 }
-            }
-            else if(enemy.health <= 0){
-                enemy.health = 0;
             }
         },
         // retaliate : function(mode, attacker, enemy){
