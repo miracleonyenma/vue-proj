@@ -20,7 +20,7 @@
 }
 
 .healthbar{
-    transition: width 0.22s ease-out;
+    transition: all 0.22s ease-out;
     width: 100%;
     background: hsl(110, 65%, 50%);
     margin: 0;

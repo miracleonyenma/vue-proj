@@ -26,24 +26,24 @@
             </div>
         </div>
     </section>
-    <section class="row controls">
+    <section v-if="!started" class="row controls">
         <div class="small-12 columns">
             <button @click="resetAll" id="start-game">START NEW GAME</button>
         </div>
     </section>
-    <section v-show="started" class="row controls">
+    <section v-else="started" class="row controls">
         <div class="small-12 columns">
             <button @click="Attack('attack', player, monster)" id="attack">ATTACK</button>
             <button @click="Attack('special', player, monster)" id="special-attack">SPECIAL ATTACK</button>
-            <button id="heal">HEAL</button>
-            <button id="give-up">GIVE UP</button>
+            <button @click="heal" id="heal">HEAL</button>
+            <button @click="started = false" id="give-up">GIVE UP</button>
         </div>
     </section>
     <section v-show="started" class="row log">
         <div class="small-12 columns">
             <ul>
-                <li>
-
+                <li v-for="i in logs">
+                    {{i}}
                 </li>
             </ul>
         </div>
