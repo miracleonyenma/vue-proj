@@ -22,28 +22,44 @@ new Vue({
     },
     methods:{
         Attack : function(mode, attacker, enemy){
-            console.log(enemy[mode]);
+            if(!this.won){
+                console.log(enemy[mode]);
             
-            if(attacker.health > 0){
-                enemy.health = enemy.health - attacker[mode];
-                if(enemy.health <= 0){
-                    enemy.health = 0;
+                if(attacker.health > 0){
+                    enemy.health = enemy.health - attacker[mode];
+                    if(enemy.health <= 0){
+                        enemy.health = 0;
+                    }
+                    this.logs.unshift(this.addToLog(mode, attacker, enemy));
+    
+                    if(attacker == this.player){
+                        if(attacker.health <= 0){
+                            alert("you lost");
+                        }
+                        if(enemy.health <= 0){
+                            this.won = true;
+                            alert("You won");
+                        }
+                        this.Attack("attack", enemy, attacker);
+                    }
                 }
-                this.logs.unshift(this.addToLog(mode, attacker, enemy));
 
-                if(attacker == this.player){
-                    this.Attack("attack", enemy, attacker);
+                if(attacker == this.player && attacker.health <= 0){
+                    alert("you lost");
                 }
+    
             }
         },
         heal : function(){
-            if(this.player.health <= 100){              
-                this.player.health = this.player.health + this.player.heal
-                if(this.player.health >= 100){
-                    this.player.health = 100
+            if(!this.won){
+                if(this.player.health <= 100){              
+                    this.player.health = this.player.health + this.player.heal
+                    if(this.player.health >= 100){
+                        this.player.health = 100
+                    }
+                    this.logs.unshift(this.addToLog("heal", this.player, this.monster));
+                    this.Attack("attack", this.monster, this.player);
                 }
-                this.logs.unshift(this.addToLog("heal", this.player, this.monster));
-                this.Attack("attack", this.monster, this.player);
             }
         },
         resetAll : function(){
@@ -51,6 +67,7 @@ new Vue({
             this.player.health = 100;
             this.monster.health = 100;
             this.logs = [];
+            this.won = false;
         },
         addToLog : function(mode, attacker, enemy){
             if(mode === "heal"){
