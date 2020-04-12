@@ -26,6 +26,7 @@
     margin: 0;
     color: #fff;
     position: relative;
+    margin: 5% 0;
 }
 
 
@@ -54,12 +55,12 @@
     margin: 5px;
 }
 
-.log ul .player-turn {
+.log ul .player {
     color: blue;
     background-color: #e4e8ff;
 }
 
-.log ul .monster-turn {
+.log ul .monster {
     color: red;
     background-color: #ffc0c1;
 }

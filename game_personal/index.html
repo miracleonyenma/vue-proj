@@ -42,8 +42,8 @@
     <section v-show="started" class="row log">
         <div class="small-12 columns">
             <ul>
-                <li v-for="i in logs" >
-                    {{i}}
+                <li v-for="i in logs" :class="i.attacker">
+                    {{i.log}}
                 </li>
             </ul>
         </div>

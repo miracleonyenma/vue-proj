@@ -2,7 +2,7 @@ new Vue({
     el: "#app",
     data: {
         started : false,
-        won: false,
+        gameOver: false,
         monster : {
             name: "monster",
             health : 100,
@@ -22,7 +22,7 @@ new Vue({
     },
     methods:{
         Attack : function(mode, attacker, enemy){
-            if(!this.won){
+            if(!this.gameOver){
                 console.log(enemy[mode]);
             
                 if(attacker.health > 0){
@@ -37,21 +37,22 @@ new Vue({
                             alert("you lost");
                         }
                         if(enemy.health <= 0){
-                            this.won = true;
-                            alert("You won");
+                            this.gameOver = true;
+                            confirm("You Won! \nPlay again?") ? this.resetAll() : null;
                         }
                         this.Attack("attack", enemy, attacker);
                     }
                 }
 
                 if(attacker == this.player && attacker.health <= 0){
-                    alert("you lost");
+                    this.gameOver = true;
+                    confirm("You lost! \nPlay again?") ? this.resetAll() : null;
                 }
     
             }
         },
         heal : function(){
-            if(!this.won){
+            if(!this.gameOver){
                 if(this.player.health <= 100){              
                     this.player.health = this.player.health + this.player.heal
                     if(this.player.health >= 100){
@@ -67,15 +68,17 @@ new Vue({
             this.player.health = 100;
             this.monster.health = 100;
             this.logs = [];
-            this.won = false;
+            this.gameOver = false;
         },
         addToLog : function(mode, attacker, enemy){
             if(mode === "heal"){
                 // return [attacker.name, attacker[mode]]
-                return attacker.name + " heals for " + attacker[mode]; 
+                // return attacker.name + " heals for " + attacker[mode];
+                return {attacker: attacker.name, log: attacker.name + " heals for " + attacker[mode]} 
             }else{
                 // return [attacker.name, enemy.name, attacker[mode]]
-                return attacker.name + " hits " + enemy.name + " for " + attacker[mode];
+                // return attacker.name + " hits " + enemy.name + " for " + attacker[mode];
+                return {attacker: attacker.name, log: attacker.name + " hits " + enemy.name + " for " + attacker[mode]}; 
             }            
         }
     }
