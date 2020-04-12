@@ -10,7 +10,7 @@
 <div id="app">
     <section class="row">
         <div class="small-6 columns">
-            <h1 class="text-center">YOU</h1>
+            <h1 class="text-center">YOU - {{player.wins}}</h1>
             <div class="healthbar-cont">
                 <div :style="{width : player.health + '%', backgroundColor : 'hsl('+player.health + ', 65%, 50%)'}" class="healthbar text-center">
                 </div>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="small-6 columns">
-            <h1 class="text-center">MONSTER</h1>
+            <h1 class="text-center">MONSTER - {{monster.wins}}</h1>
             <div class="healthbar-cont">
                 <div class="healthbar text-center" :style="{width : monster.health + '%', backgroundColor : 'hsl('+monster.health + ', 65%, 50%)'}">
                 </div>

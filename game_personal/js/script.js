@@ -7,14 +7,16 @@ new Vue({
             name: "monster",
             health : 100,
             attack : 5,
-            special : 10
+            special : 10,
+            wins : 0
         },
         player : {
             name: "player",
             health : 45,
             attack : 3,
             special : 7,
-            heal : 8
+            heal : 8,
+            wins : 0
         },
         logs : [
         ]
@@ -35,6 +37,7 @@ new Vue({
                 }
                 if(enemy.health <= 0 ){
                     enemy.health = 0;
+                    attacker.wins++;
                     confirm(attacker.name +" Won! \nPlay again?") ? this.resetAll() : null;
                 }
                     
