@@ -40,7 +40,6 @@ new Vue({
                     attacker.wins++;
                     confirm(attacker.name +" Won! \nPlay again?") ? this.resetAll() : null;
                 }
-                    
             }
             
         },
